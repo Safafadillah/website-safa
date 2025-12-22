@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Dashboard - Safa Fadillah</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .detail-header {
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 3rem;
+            background-color: rgba(15, 23, 42, 0.95);
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #6366f1;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            color: #8b5cf6;
+            transform: translateX(-5px);
+        }
+        
+        .project-title-main {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #f8fafc, #cbd5e1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .project-subtitle {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+        
+        .tech-badge {
+            background: rgba(99, 102, 241, 0.15);
+            color: #6366f1;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+        
+        /* Hero Image */
+        .hero-image {
+            width: 100%;
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .hero-image:hover img {
+            transform: scale(1.03);
+        }
+        
+        /* Content Sections */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 3rem 0 1.5rem;
+            color: #f8fafc;
+            position: relative;
+            padding-bottom: 0.7rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #6366f1, #8b5cf6);
+            border-radius: 2px;
+        }
+        
+        .project-description {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .features-list {
+            list-style-type: none;
+            margin-bottom: 2rem;
+        }
+        
+        .features-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #cbd5e1;
+        }
+        
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #6366f1;
+            font-weight: bold;
+        }
+        
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            height: 250px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary-detail {
+            background-color: #6366f1;
+            color: white;
+            border: none;
+        }
+        
+        .btn-primary-detail:hover {
+            background-color: #4f46e5;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+            color: white;
+        }
+        
+        .btn-outline-detail {
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: #f8fafc;
+        }
+        
+        .btn-outline-detail:hover {
+            border-color: #6366f1;
+            color: #6366f1;
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        .detail-footer {
+            background-color: rgba(15, 23, 42, 0.95);
+            padding: 2rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .copyright {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-title-main {
+                font-size: 2.2rem;
+            }
+            
+            .hero-image {
+                height: 350px;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .action-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .project-title-main {
+                font-size: 1.8rem;
+            }
+            
+            .hero-image {
+                height: 250px;
+            }
+            
+            .tech-stack {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="detail-header">
+        <div class="container">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+            <h1 class="project-title-main">Apotek App</h1>
+            <p class="project-subtitle"></p>
+            
+            <div class="tech-stack">
+                <span class="tech-badge">Laravel</span>
+                <span class="tech-badge">MySQL</span>
+                <span class="tech-badge">Blade</span>
+                <span class="tech-badge">Tailwind CSS</span>
+                 <span class="tech-badge">Vue.js</span>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <!-- Hero Image -->
+        <div class="hero-image">
+            <img src="images/admin/loginpage.png" 
+                 alt="E-commerce Dashboard Screenshot">
+        </div>
+        
+        <!-- Project Overview -->
+        <section>
+            <h2 class="section-title">Gambaran Umum</h2>
+            <p class="project-description">
+              Dashboard E-Commerce PetShop adalah platform analitik lengkap yang dirancang untuk membantu pemilik toko hewan peliharaan melacak dan menganalisis kinerja toko online mereka secara real-time. Dashboard ini memberikan wawasan yang dapat ditindaklanjuti melalui visualisasi intuitif, membantu pengguna membuat keputusan berbasis data untuk mengembangkan bisnis mereka.
+            </p>
+            <p class="project-description">
+                Proyek ini dikembangkan menggunakan teknologi web modern dengan fokus pada performa, skalabilitas, dan pengalaman pengguna. Sistem ini menyediakan widget yang dapat disesuaikan untuk memenuhi berbagai kebutuhan bisnis toko hewan peliharaan.
+            </p>
+        </section>
+        
+        <!-- Image Gallery -->
+        <section>
+            <h2 class="section-title">Screenshots</h2>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <a href="images/admin/dashboardadmin.png" target="_blank">
+                        <img src="images/admin/dashboardadmin.png" 
+                             alt="Dashboard Overview">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="images/admin/screencapture-127-0-0-1-8000-user-dashboard-2025-12-22-10_06_26.png" target="_blank">
+                        <img src="images/admin/screencapture-127-0-0-1-8000-user-dashboard-2025-12-22-10_06_26.png" 
+                             alt="Analytics Charts">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="images/admin/detailprodukadmin.png" target="_blank">
+                        <img src="images/admin/detailprodukadmin.png" 
+                             alt="Inventory Management">
+                    </a>
+                </div>
+                <div class="gallery-item">
+                    <a href="images/admin/editprodukadmin.png" target="_blank">
+                        <img src="images/admin/editprodukadmin.png" 
+                             alt="Customer Reports">
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Technical Details -->
+        <section>
+            <h2 class="section-title">Arsitektur</h2>
+            <p class="project-description">
+                Aplikasi ini dibangun menggunakan Laravel 12 sebagai framework backend utama, mengadopsi arsitektur MVC (Model-View-Controller) yang terstruktur. Sistem ini memanfaatkan Eloquent ORM untuk manajemen database yang efisien dan aman, dengan MySQL sebagai penyimpanan data utama.</p>
+        </section>
+        
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <a href="https://github.com/safa/ecommerce-dashboard" target="_blank" class="action-btn btn-primary-detail">
+                <i class="fab fa-github"></i> View Source Code
+            </a>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="detail-footer">
+        <div class="container">
+            <p class="copyright">© 2023 Safa Fadillah. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

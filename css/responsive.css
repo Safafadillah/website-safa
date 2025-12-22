@@ -1,0 +1,208 @@
+Responsif
+@media (max-width: 1200px) {
+    .profile-img {
+        width: 340px;
+        height: 340px;
+    }
+    
+    .profile-glow {
+        width: 380px;
+        height: 380px;
+    }
+    
+    .name {
+        font-size: 3.2rem;
+    }
+    
+    .title-text {
+        font-size: 1.8rem;
+    }
+    
+    .about-content-wrapper {
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-content {
+        padding-right: 0;
+        text-align: center;
+    }
+    
+    .profile-img {
+        width: 300px;
+        height: 300px;
+        margin-bottom: 2rem;
+    }
+    
+    .profile-glow {
+        width: 340px;
+        height: 340px;
+    }
+    
+    .name {
+        font-size: 2.8rem;
+    }
+    
+    .title-text {
+        font-size: 1.6rem;
+    }
+    
+    .description {
+        margin: 0 auto 2rem;
+        font-size: 1.05rem;
+    }
+    
+    .button-group {
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+    
+    .nav-links {
+        justify-content: center;
+        margin-top: 0.5rem;
+        gap: 1.5rem;
+    }
+    
+    .about-content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-image-container {
+        flex: 0 0 auto;
+        max-width: 450px;
+        margin: 0 auto 3rem;
+    }
+    
+    .contact-item {
+        display: block;
+        margin: 1rem 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0.7rem 1rem;
+    }
+    
+    .header.scrolled {
+        padding: 0.5rem 1rem;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
+    }
+    
+    .nav-links {
+        gap: 1.2rem;
+    }
+    
+    .nav-link {
+        font-size: 0.85rem;
+    }
+    
+    .profile-img {
+        width: 260px;
+        height: 260px;
+    }
+    
+    .profile-glow {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .name {
+        font-size: 2.4rem;
+    }
+    
+    .title-text {
+        font-size: 1.4rem;
+    }
+    
+    section {
+        padding: 4rem 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .name {
+        font-size: 2.1rem;
+    }
+    
+    .title-text {
+        font-size: 1.2rem;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+    
+    .btn-primary-custom, .btn-outline-custom {
+        width: 100%;
+        max-width: 240px;
+        padding: 0.7rem 1.8rem;
+        font-size: 0.95rem;
+    }
+    
+    .profile-img {
+        width: 220px;
+        height: 220px;
+        border-width: 8px;
+    }
+    
+    .profile-glow {
+        width: 260px;
+        height: 260px;
+    }
+    
+    .section-title {
+        font-size: 1.7rem;
+    }
+    
+    .about-text {
+        font-size: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .swiper-button-next, .swiper-button-prev {
+        display: none;
+    }
+    
+    .scroll-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}
