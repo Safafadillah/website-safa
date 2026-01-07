@@ -202,3 +202,77 @@ document.addEventListener('DOMContentLoaded', () => {
     setupFormSubmission();
     setupScrollTopButton();
 });
+
+
+// Certificate Modal Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Create modal element
+    const modal = document.createElement('div');
+    modal.className = 'certificate-modal';
+    modal.innerHTML = `
+        <div class="certificate-modal-content">
+            <button class="close-certificate-modal">&times;</button>
+            <img src="" alt="Certificate Preview">
+        </div>
+    `;
+    document.body.appendChild(modal);
+    
+    const modalImg = modal.querySelector('img');
+    const closeModal = modal.querySelector('.close-certificate-modal');
+    
+    // Open modal when certificate card is clicked
+    document.querySelectorAll('.certificate-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Don't open modal if clicking the button
+            if (e.target.closest('.view-certificate-btn')) return;
+            
+            const imgSrc = this.querySelector('img').src;
+            const imgAlt = this.querySelector('img').alt;
+            
+            modalImg.src = imgSrc;
+            modalImg.alt = imgAlt;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    // Close modal
+    closeModal.addEventListener('click', function() {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+    
+    // Close with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+    
+    // Add view certificate buttons
+    document.querySelectorAll('.certificate-card').forEach(card => {
+        const btn = document.createElement('button');
+        btn.className = 'view-certificate-btn';
+        btn.innerHTML = '<i class="fas fa-expand"></i> View';
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const imgSrc = card.querySelector('img').src;
+            const imgAlt = card.querySelector('img').alt;
+            
+            modalImg.src = imgSrc;
+            modalImg.alt = imgAlt;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        card.querySelector('.certificate-image').appendChild(btn);
+    });
+});
