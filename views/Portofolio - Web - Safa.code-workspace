@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "Portofolio - Web - Safa"
+		"liveServer.settings.multiRootWorkspaceName": "Portofolio - Web - Safa",
+		"liveServer.settings.port": 5501
 	}
 }
